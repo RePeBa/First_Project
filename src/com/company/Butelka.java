@@ -30,7 +30,7 @@ package com.company;
 
         void wlej(double ilosc)
             {
-            if (ilosc <= this.pojemnoscMax - ileLitrow)
+            if (ilosc <= this.pojemnoscMax - this.ileLitrow)
                 this.ileLitrow += ilosc;
             else
                  System.out.println("Za mało miejsca w butelce. Próbę wlania anulowano");
@@ -38,8 +38,8 @@ package com.company;
 
         void wylej(double ilosc)
         {
-            if (ilosc > getIleZostaloWewnButelki())
-                this.pojemnoscMax += ilosc;
+            if (ilosc < (this.pojemnoscMax - this.ileLitrow))
+                this.ileLitrow -= ilosc;
             else
                 System.out.println("Nie ma tyle płynu w butelce.");
         }
@@ -78,18 +78,17 @@ package com.company;
                     + " litrów. Zostało " + (butelka[7].pojemnoscMax - butelka[7].ileLitrow) + " litrów miejsca.");
             System.out.println("-------------------------------------------------------------------------------------------------");
 
-//            butelka[4].wylej(5); /* można wylać za duzo - trzeba ograniczyć*/
-//
-//            System.out.println(" W butelce " + butelka[4].nazwa + " jest płyn w ilości " + (ltr[3]  - butelka[4].getIleZostalo())
-//                    + " litrów. Zostało " + butelka[4].getIleZostalo() + " litrów miejsca.");
-//            System.out.println("-------------------------------------------------------------------------------------------------");
-//
-//            butelka[7].wylej(7.0);
-//            System.out.println("  W butelce " + butelka[7].nazwa + " jest płyn w ilości " + (ltr[6] - butelka[7].getIleZostalo())
-//                    +" litrów. Zostało " + butelka[7].getIleZostalo() + " litrów miejsca.");
-//            System.out.println("-------------------------------------------------------------------------------------------------");
-//
-//        System.out.println(butelka[4].getIleZostaloWewnButelki());
+            butelka[4].wylej(5); /* można wylać za duzo - trzeba ograniczyć*/
+            System.out.println(" W butelce " + butelka[4].nazwa + " jest płyn w ilości " + (butelka[4].ileLitrow)
+                    + " litrów. Zostało " + (butelka[4].pojemnoscMax - butelka[4].ileLitrow) + " litrów miejsca.");
+            System.out.println("-------------------------------------------------------------------------------------------------");
+
+            butelka[7].wylej(7.0);
+            System.out.println("  W butelce " + butelka[7].nazwa + " jest płyn w ilości " + (butelka[7].ileLitrow)
+                    +" litrów. Zostało " + (butelka[7].pojemnoscMax - butelka[7].ileLitrow) + " litrów miejsca.");
+            System.out.println("-------------------------------------------------------------------------------------------------");
+
+        System.out.println(butelka[4].getIleZostaloWewnButelki());
         }
     }
 
