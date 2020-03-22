@@ -1,5 +1,8 @@
 package com.company;
 
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+
     public class Butelka {
 
         private double pojemnoscMax;
@@ -12,6 +15,8 @@ package com.company;
             this.ileLitrow = ileLitrow;
             this.nazwa = nazwa;
         }
+
+
 
         double getIleZostalo()
             {
